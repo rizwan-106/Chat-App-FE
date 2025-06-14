@@ -220,7 +220,7 @@ const ChatBox = () => {
             </button> */}
             <button
               onClick={sendMessage}
-              className="dark:bg-green-600 h-10 w-10 flex justify-center items-center rounded-full"
+              className="dark:bg-green-600 h-10 w-10 flex justify-center items-center rounded-full hover:cursor-pointer"
             >
               <MdSend size={20} />
             </button>
