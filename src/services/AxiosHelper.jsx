@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const url = "http://localhost:3105";
+export const backend_url = "http://localhost:3105";
 export const httpClient = axios.create({
-  baseURL: url,
+  baseURL: backend_url,
 });

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import SockJS from "sockjs-client";
 import { Stomp } from "@stomp/stompjs";
 import toast from "react-hot-toast";
-import { url } from "../services/AxiosHelper";
+import { backend_url } from "../services/AxiosHelper";
 import { timeAgo } from "../services/TimeHelper";
 import useChatContext from "../context/ChatContext";
 import { getMessages } from "../services/RoomServices";
@@ -62,7 +62,7 @@ const ChatBox = () => {
   useEffect(() => {
     if (!connected) return;
 
-    const sock = new SockJS(`${url}/chat`);
+    const sock = new SockJS(`${backend_url}/chat`);
     const client = Stomp.over(sock);
 
     client.connect({}, () => {
