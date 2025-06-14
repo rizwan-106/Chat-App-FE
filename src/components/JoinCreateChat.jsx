@@ -43,7 +43,6 @@ const JoinCreateChat = () => {
         } else {
           toast.error("Error in joining room");
         }
-        // console.log(error);
       }
     }
   }
@@ -51,7 +50,6 @@ const JoinCreateChat = () => {
   async function createRoom() {
     if (validateForm()) {
       //create room
-      // console.log(detail);
       //! call api to create room on backend
       try {
         const response = await createRoomApi(detail.roomId);
