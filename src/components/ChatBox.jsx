@@ -154,7 +154,7 @@ const ChatBox = () => {
 
       <main
         ref={chatBoxRef}
-        className={`mt-20 pb-16 h-[calc(100vh-5rem)]  px-10 w-2/3 dark:bg-emerald-600 mx-auto overflow-auto border-2 border-green-700`}
+        className={`mt-20 pb-1 h-[calc(100vh-5rem)] px-4 sm:px-10 w-full sm:w-2/3 dark:bg-emerald-600 mx-auto overflow-auto border-2 border-green-700`}
       >
         {messages.map((message, index) => (
           <div
@@ -164,10 +164,10 @@ const ChatBox = () => {
             }`}
           >
             <div
-              className={`my-2 p-2 max-w-xs border-2 ${
+              className={`my-1 p-2 max-w-xs border-2 ${
                 message.sender === currentUser
-                  ? "bg-green-900 rounded-tl-lg rounded-bl-lg rounded-br-lg"
-                  : "bg-purple-900 rounded-tr-lg rounded-bl-lg rounded-br-lg"
+                  ? "bg-gray-950 rounded-tl-lg rounded-bl-lg rounded-br-lg"
+                  : "bg-blue-800 rounded-tr-lg rounded-bl-lg rounded-br-lg"
               }`}
             >
               <div className="flex flex-row gap-2">
@@ -177,7 +177,7 @@ const ChatBox = () => {
                   alt="avatar"
                 />
                 <div className="flex flex-col gap-1 overflow-hidden">
-                  <p className="text-sm font-bold">
+                  <p className="text-sm font-bold text-green-400">
                     {message.sender === currentUser ? "" : message.sender}
                   </p>
                   {message.sender === currentUser ? "" : <hr />}
@@ -198,9 +198,8 @@ const ChatBox = () => {
           </div>
         )}
       </main>
-
-      <div className="fixed bottom-1 w-full h-16">
-        <div className="h-full pr-10 gap-4 flex items-center justify-between rounded-full w-1/2 mx-auto dark:bg-gray-900">
+      <div className="sticky bottom-0 w-full px-4 sm:px-0 h-16 z-10">
+        <div className="h-full gap-2 flex items-center justify-between rounded-full w-full sm:w-2/3 mx-auto dark:bg-gray-900 border-2">
           <input
             value={input}
             onChange={(e) => {
@@ -212,15 +211,12 @@ const ChatBox = () => {
             }}
             type="text"
             placeholder="Type your message here..."
-            className="w-full dark:border-gray-600 dark:bg-gray-800 px-5 py-2 rounded-full h-full focus:outline-none"
+            className="w-full dark:border-gray-600 dark:bg-gray-800 px-5 rounded-full h-full focus:outline-none"
           />
           <div className="flex gap-1">
-            {/* <button className="dark:bg-purple-600 h-10 w-10 flex justify-center items-center rounded-full">
-              <MdAttachFile size={20} />
-            </button> */}
             <button
               onClick={sendMessage}
-              className="dark:bg-green-600 h-10 w-10 flex justify-center items-center rounded-full hover:cursor-pointer"
+              className="dark:bg-green-600 h-10 w-10 flex justify-center items-center rounded-full border-2 hover:cursor-pointer mr-5"
             >
               <MdSend size={20} />
             </button>

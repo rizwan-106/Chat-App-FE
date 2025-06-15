@@ -103,7 +103,7 @@ const JoinCreateChat = () => {
             value={detail.roomId}
             type="text"
             id="name"
-            placeholder="Enter the room id"
+            placeholder="Enter the room id (e.g. room1, room2, etc.)"
             className="w-full dark:bg-gray-600 px-4 py-2 border dark:border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
