@@ -1,8 +1,8 @@
 export function timeAgo(date) {
   const now = new Date();
-  const past = new Date(date);
-  const secondsAgo = Math.floor((now - past) / 1000);
-
+  const past = new Date(date); 
+  const secondsAgo = Math.floor((now- past) / 1000);
+  // console.log(Math.floor((now - past) / 1000000));
   if (secondsAgo < 60) return `${secondsAgo} seconds ago`;
   const minutesAgo = Math.floor(secondsAgo / 60);
   if (minutesAgo < 60) return `${minutesAgo} minutes ago`;
