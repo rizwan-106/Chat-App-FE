@@ -279,6 +279,7 @@ const ChatBox = () => {
                     {message.content}
                   </p>
                   <p className="text-xs text-gray-400">
+                    {console.log(message.timeStamp)}
                     {timeAgo(message.timeStamp)}
                   </p>
                 </div>
