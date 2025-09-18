@@ -111,13 +111,13 @@ const JoinCreateChat = () => {
         <div className="flex justify-center gap-2 mt-4">
           <button
             onClick={joinChat}
-            className="px-3 py-2 dark:bg-blue-500 hover:dark:bg-blue-800 rounded-full"
+            className="px-3 py-2 dark:bg-blue-500 hover:dark:bg-blue-800 rounded-full cursor-pointer"
           >
             Join Room
           </button>
           <button
             onClick={createRoom}
-            className="px-3 py-2 dark:bg-orange-500 hover:dark:bg-orange-800 rounded-full"
+            className="px-3 py-2 dark:bg-orange-500 hover:dark:bg-orange-800 rounded-full cursor-pointer"
           >
             Create Room
           </button>

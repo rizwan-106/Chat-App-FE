@@ -4,7 +4,10 @@ import Router from "./router/Router";
 function App() {
   return (
     <>
-      <Toaster/>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
       <Router />
     </>
   );

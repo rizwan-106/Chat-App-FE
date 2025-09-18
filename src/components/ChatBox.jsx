@@ -91,7 +91,7 @@ const ChatBox = () => {
 
     return () => {
       client.disconnect(() => {
-        console.log("WebSocket disconnected");
+        // console.log("WebSocket disconnected");
       });
     };
   }, [roomId, connected, currentUser]);
@@ -132,23 +132,21 @@ const ChatBox = () => {
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       {/* Header */}
-      <header className="fixed top-0 w-full h-20 dark:bg-teal-700 shadow flex justify-around items-center border-2 z-30">
+      <header className="fixed top-0 w-full h-20 dark:bg-teal-700 shadow flex justify-around items-center z-10 px-1">
+        <h1 className="text-xl font-semibold">
+          Room: <span className="text-yellow-300">{roomId}</span>
+        </h1>
         <div>
           <h1 className="text-xl font-semibold">
-            Room : <span className="text-yellow-300">{roomId}</span>
-          </h1>
-        </div>
-        <div>
-          <h1 className="text-xl font-semibold">
-            User : <span className="text-yellow-300">{currentUser}</span>
+            User: <span className="text-yellow-300">{currentUser}</span>
           </h1>
         </div>
         <div>
           <button
             onClick={handleLogout}
-            className="dark:bg-red-500 dark:hover:bg-red-700 px-3 py-2 rounded-full"
+            className="dark:bg-red-500 dark:hover:bg-red-700 px-3 py-2 rounded-full cursor-pointer"
           >
-            Leave Room
+            Leave 
           </button>
         </div>
       </header>
@@ -159,16 +157,14 @@ const ChatBox = () => {
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`flex ${
-              message.sender === currentUser ? "justify-end" : "justify-start"
-            }`}
+            className={`flex ${message.sender === currentUser ? "justify-end" : "justify-start"
+              }`}
           >
             <div
-              className={`my-1 p-2 max-w-xs border-2 ${
-                message.sender === currentUser
+              className={`my-1 p-2 max-w-xs border-2 ${message.sender === currentUser
                   ? "bg-gray-950 rounded-tl-lg rounded-bl-lg rounded-br-lg"
                   : "bg-blue-800 rounded-tr-lg rounded-bl-lg rounded-br-lg"
-              }`}
+                }`}
             >
               <div className="flex flex-row gap-2">
                 <img
