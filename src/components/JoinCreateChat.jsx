@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import chatIcon from "../asset/chat.png";
 import { useNavigate } from "react-router";
@@ -21,36 +21,14 @@ const JoinCreateChat = () => {
 
   function validateForm() {
     if (detail.roomId === "" || detail.userName === "") {
-      toast.error("Invalid Input !!");
+      toast.error("Invalid Input!!");
       return false;
     }
     return true;
   }
 
-  async function joinChat() {
-    if (validateForm()) {
-      //join chat
-      try {
-        const room = await joinChatApi(detail.roomId);
-        toast.success("joined...");
-        setCurrentUser(detail.userName);
-        setRoomId(room.roomId);
-        setConnected(true);
-        navigate("/chat");
-      } catch (error) {
-        if (error.status == 400) {
-          toast.error(error.response.data);
-        } else {
-          toast.error("Error in joining room");
-        }
-      }
-    }
-  }
-
   async function createRoom() {
     if (validateForm()) {
-      //create room
-      //! call api to create room on backend
       try {
         const response = await createRoomApi(detail.roomId);
         toast.success("Room Created Successfully !!");
@@ -68,9 +46,29 @@ const JoinCreateChat = () => {
       }
     }
   }
+
+  async function joinChat() {
+    if (validateForm()) {
+      try {
+        const room = await joinChatApi(detail.roomId);
+        toast.success("joined...");
+        setCurrentUser(detail.userName);
+        setRoomId(room.roomId);
+        setConnected(true);
+        navigate("/chat");
+      } catch (error) {
+        if (error.status == 400) {
+          toast.error(error.response.data);
+        } else {
+          toast.error("Error in joining room");
+        }
+      }
+    }
+  }
   return (
+
     <div className="min-h-screen flex items-center justify-center">
-      <div className="p-10 dark:border-gray-300 border w-full flex flex-col gap-5 max-w-md rounded dark:bg-gray-900 shadow">
+      <div className="p-10  w-full flex flex-col gap-5 max-w-md rounded dark:bg-gray-900  shadow-2xl">
         <div>
           <img src={chatIcon} className="w-24 mx-auto" />
         </div>
@@ -108,16 +106,16 @@ const JoinCreateChat = () => {
           />
         </div>
 
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-3 mt-4">
           <button
             onClick={joinChat}
-            className="px-3 py-2 dark:bg-blue-500 hover:dark:bg-blue-800 rounded-full cursor-pointer"
+            className="px-6 py-2 bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 hover:dark:bg-blue-700 text-white font-medium rounded-full cursor-pointer transition-colors duration-200"
           >
             Join Room
           </button>
           <button
             onClick={createRoom}
-            className="px-3 py-2 dark:bg-orange-500 hover:dark:bg-orange-800 rounded-full cursor-pointer"
+            className="px-6 py-2 bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 hover:dark:bg-orange-700 text-white font-medium rounded-full cursor-pointer transition-colors duration-200"
           >
             Create Room
           </button>

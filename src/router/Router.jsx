@@ -1,6 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes } from 'react-router'
-import { Route } from 'react-router'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import JoinCreateChat from '../components/JoinCreateChat'
 import ChatBox from '../components/ChatBox'
 
@@ -13,7 +12,7 @@ const Router = () => {
           <Route path="/chat" element={<ChatBox />}></Route>
         </Routes>
       </BrowserRouter>
-      
+
     </div>
   );
 }
